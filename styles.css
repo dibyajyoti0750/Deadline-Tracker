@@ -1,0 +1,115 @@
+/* #bg-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.countdown {
+  font-size: 5rem;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: screen;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 0, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.6),
+    0 0 40px rgba(255, 255, 0, 0.6);
+  animation: glow 5s infinite alternate ease-in-out;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
+      0 0 20px rgba(255, 0, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.5);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 0, 255, 1),
+      0 0 60px rgba(0, 255, 255, 1), 0 0 80px rgba(255, 255, 0, 1);
+  }
+} */
+
+.card {
+  height: 10em;
+  background: white;
+  border: none;
+  border-radius: 1.2rem;
+  box-shadow: 0.3em 0.3em black;
+}
+
+.days-over,
+.days-remaining {
+  font-size: 4rem;
+}
+
+.p-days-over,
+.p-days-remaining {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.progress-container {
+  margin: auto;
+  border: 1px solid black;
+  border-radius: 1rem;
+  height: 6.875rem;
+  width: 80%;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.date-picker {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.start-date,
+.end-date {
+  display: flex;
+  flex-direction: column;
+}
+
+.dots-container {
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 1rem 0.4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.dots-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.dot {
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 1rem;
+  width: 1rem;
+}
+
+.black-bg {
+  background-color: black;
+}
+
+.tracking-msg-container {
+  font-size: 0.85rem;
+}

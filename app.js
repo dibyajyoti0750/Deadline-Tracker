@@ -7,6 +7,8 @@ let daysRemaining = document.querySelector(".days-remaining");
 
 let dotsWrapper = document.querySelector(".dots-wrapper");
 
+let progressBar = document.querySelector(".progress-bar");
+
 let startDate;
 let endDate;
 
@@ -75,6 +77,8 @@ function calculateDays() {
     }
 
     changeColor(daysPassed);
+
+    updatePercentage(daysPassed, daysBetween);
   }
 }
 
@@ -90,4 +94,16 @@ function changeColor(daysPassed) {
   for (let i = 0; i < daysPassed; i++) {
     dots[i].classList.add("black-bg");
   }
+}
+
+function updatePercentage(part, whole) {
+  if (whole === 0) {
+    progressBar.setAttribute("style", `width: 100%`);
+    progressBar.innerHTML = `100%`;
+    return;
+  }
+
+  let percentage = Math.round((part / whole) * 100);
+  progressBar.setAttribute("style", `width: ${percentage}%`);
+  progressBar.innerHTML = `${percentage}%`;
 }

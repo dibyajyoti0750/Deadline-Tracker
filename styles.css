@@ -1,45 +1,120 @@
 body {
-  background-color: #f9f9f9;
+  background-color: #000;
+  color: #ccc;
+  font-family: sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at top left,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: -1;
 }
 
 .countdown {
   font-size: 3.2rem;
-  font-family: "Righteous";
+  font-family: "Righteous", sans-serif;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 3px;
   position: relative;
   z-index: 1;
+  color: #fff;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 }
 
 .card {
   height: 10em;
-  background: linear-gradient(145deg, #2c2c2c, #232323);
+  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
   border: none;
   border-radius: 1.2rem;
-  box-shadow: 0.3em 0.3em 0.5em rgba(0, 0, 0, 0.5);
+  box-shadow: 0.3em 0.3em 0.5em rgba(0, 0, 0, 0.7);
   color: #fff;
 }
 
 .days-over,
 .days-remaining {
   font-size: 4rem;
+  color: #fff;
 }
 
 .p-days-over,
 .p-days-remaining {
   font-size: 1.1rem;
   font-weight: 700;
+  color: #aaa;
+}
+
+.date-picker {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.start-date,
+.end-date {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1rem;
+  color: #ccc;
+  font-weight: bold;
+}
+
+input[type="date"] {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+  background: #1c1c1c;
+  color: #eee;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.tracking-msg-container {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.fa-circle-check {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+}
+
+.tracking-msg {
+  color: #fff;
+}
+
+.error-msg {
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 .progress-container {
   margin: auto;
-
   border-radius: 1rem;
   height: 6.875rem;
   width: 80%;
   padding: 1.2rem;
-  background-color: rgba(28, 110, 211, 0.1);
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,8 +124,8 @@ body {
 }
 
 .progress {
-  height: 2rem;
-  background: rgba(255, 255, 255);
+  height: 1.5rem;
+  background: #222;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
@@ -58,15 +133,7 @@ body {
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(
-    45deg,
-    #ff6b6b,
-    #ff8e53,
-    #ffd479,
-    #7bed9f,
-    #70a1ff,
-    #9f7efe
-  );
+  background: linear-gradient(45deg, #00d2ff, #3a7bd5, #8e2de2, #ff0080);
   background-size: 400% 400%;
   border-radius: 8px;
   position: relative;
@@ -127,50 +194,8 @@ body {
   right: 0;
   bottom: 0;
   border-radius: 1rem;
-  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.2);
-  animation: glow 2s ease-in-out infinite;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
   pointer-events: none;
-}
-
-@keyframes glow {
-  0%,
-  100% {
-    opacity: 0.8;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-.date-picker {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1rem;
-  border-radius: 0.5rem;
-}
-
-.start-date,
-.end-date {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  font-size: 1rem;
-  color: #000;
-  font-weight: bold;
-}
-
-input[type="date"] {
-  padding: 8px 12px;
-  font-size: 16px;
-  border: 1px solid #444;
-  border-radius: 0.5rem;
-  background: #333;
-  color: #eee;
-  outline: none;
-  transition: all 0.3s ease-in-out;
 }
 
 .dots-container {
@@ -178,7 +203,7 @@ input[type="date"] {
   padding: 1rem 0.4rem;
   display: flex;
   flex-direction: column;
-  background-color: rgb(0, 0, 0, 0.7);
+  background-color: #131313;
 }
 
 .dots-wrapper {
@@ -191,7 +216,7 @@ input[type="date"] {
 }
 
 .dot {
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: #27272a;
   border-radius: 50%;
   height: 1rem;
   width: 1rem;
@@ -201,27 +226,5 @@ input[type="date"] {
 .dot.black-bg {
   background-color: white;
   border-color: white;
-  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.5);
-}
-
-.tracking-msg-container {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.8);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  justify-content: center;
-}
-
-.fa-circle-check {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 1.2rem;
-}
-
-.tracking-msg {
-  color: white;
-}
-
-.error-msg {
-  color: rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
 }

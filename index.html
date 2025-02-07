@@ -27,8 +27,12 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="text-center">
-    <h1 class="mt-4 countdown">Countdown</h1>
-    <p class="fw-bold text-dark">Each dot is a day you'll never get back</p>
+    <div class="stage-light"></div>
+
+    <h1 class="mt-5 countdown">Countdown</h1>
+    <p class="fw-bold" style="opacity: 0.6">
+      Each dot is a day you'll never get back
+    </p>
 
     <div class="container my-5">
       <div class="row justify-content-center">
@@ -54,18 +58,18 @@
     </div>
 
     <div class="date-picker mt-5">
-      <div class="start-date">
-        <label for="start" class="mb-1">Start Date</label>
-        <input type="date" id="start" class="mb-2" />
+      <div class="start-date mt-4">
+        <label for="start" class="mb-2">Start Date</label>
+        <input type="date" id="start" />
       </div>
-      <div class="end-date">
-        <label for="end" class="mb-1">End Date</label>
-        <input type="date" id="end" class="mb-2" />
+      <div class="end-date mt-4">
+        <label for="end" class="mb-2">End Date</label>
+        <input type="date" id="end" />
       </div>
     </div>
 
     <div class="container">
-      <div class="dots-container container mt-5 mb-3">
+      <div class="dots-container container mt-2 mb-3">
         <div class="dots-wrapper"></div>
         <div class="tracking-msg-container mt-4">
           <i class="fa-regular fa-circle-check"></i>

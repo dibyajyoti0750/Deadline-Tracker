@@ -1,6 +1,7 @@
 {
   "name": "Countdown",
   "short_name": "Countdown",
+  "description": "Track your deadline",
   "start_url": "https://dibyajyoti0750.github.io/Deadline-Tracker/",
   "display": "standalone",
   "background_color": "#ffffff",

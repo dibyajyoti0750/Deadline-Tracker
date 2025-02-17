@@ -115,3 +115,32 @@ if ("serviceWorker" in navigator) {
       .then(() => console.log("Service Worker Registered"));
   });
 }
+
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (event) => {
+  // Prevent the default prompt
+  event.preventDefault();
+  // Save the event for later use
+  deferredPrompt = event;
+
+  // Check if the install button exists in the DOM
+  const installButton = document.getElementById("install-button");
+  if (installButton) {
+    installButton.style.display = "block";
+
+    installButton.addEventListener("click", () => {
+      // Show the prompt
+      deferredPrompt.prompt();
+
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === "accepted") {
+          console.log("User accepted the A2HS prompt");
+        } else {
+          console.log("User dismissed the A2HS prompt");
+        }
+        deferredPrompt = null;
+      });
+    });
+  }
+});
